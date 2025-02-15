@@ -76,15 +76,15 @@ export default buildConfig({
       collections: {
         media: true,
       },
-      bucket: process.env.S3_BUCKET as string,
+      bucket: process.env.S3_BUCKET!,
       config: {
         credentials: {
-          accessKeyId: process.env.S3_ACCESS_KEY_ID as string,
-          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY as string,
+          accessKeyId: process.env.S3_ACCESS_KEY_ID!,
+          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
         },
         region: process.env.S3_REGION,
         forcePathStyle: true,
-        endpoint: process.env.S3_ENDPOINT as string,
+        endpoint: process.env.S3_ENDPOINT,
       },
     }),
   ],
