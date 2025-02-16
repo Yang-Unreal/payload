@@ -20,9 +20,15 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
       className="relative flex items-center justify-center text-white h-screen w-full"
       data-theme="dark"
     >
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 -z-10">
         {media && typeof media === 'object' && (
-          <Media fill videoClassName="object-cover w-full h-screen" priority resource={media} />
+          <Media
+            fill
+            videoClassName="object-cover w-full h-screen"
+            imgClassName="object-cover"
+            priority
+            resource={media}
+          />
         )}
       </div>
       <div className="container mb-8 z-10 relative flex items-center justify-center">
