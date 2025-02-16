@@ -16,13 +16,16 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
   })
 
   return (
-    <div className="relative h-screen w-full -mt-[10.4rem]  " data-theme="dark">
-      <div className="absolute inset-0 w-full h-full">
+    <div
+      className="relative flex items-center justify-center text-white h-screen w-full"
+      data-theme="dark"
+    >
+      <div className="absolute inset-0 z-0">
         {media && typeof media === 'object' && (
-          <Media fill videoClassName="w-full h-full object-cover" priority resource={media} />
+          <Media fill videoClassName="object-cover w-full h-screen" priority resource={media} />
         )}
       </div>
-      <div className="container w-full h-full z-10 relative flex items-center justify-center">
+      <div className="container mb-8 z-10 relative flex items-center justify-center">
         <div className="max-w-[36.5rem] md:text-center">
           {richText && <RichText className="mb-6" data={richText} enableGutter={false} />}
           {Array.isArray(links) && links.length > 0 && (
