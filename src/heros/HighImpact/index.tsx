@@ -8,6 +8,8 @@ import { CMSLink } from '@/components/Link'
 import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
 
+import { getClientSideURL } from '@/utilities/getURL'
+
 export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
   const { setHeaderTheme } = useHeaderTheme()
 
@@ -24,6 +26,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
         {media && typeof media === 'object' && (
           <Media
             fill
+            poster={`${getClientSideURL()}/api/media/file/video%20cover.webp`}
             videoClassName="object-cover w-full h-screen"
             imgClassName="object-cover"
             priority
