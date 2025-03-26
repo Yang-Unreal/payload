@@ -18,6 +18,7 @@ import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
 
 import { s3Storage } from '@payloadcms/storage-s3'
+import { resendAdapter } from '@payloadcms/email-resend'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -67,6 +68,11 @@ export default buildConfig({
     },
   }),
   collections: [Pages, Posts, Media, Categories, Users],
+  email: resendAdapter({
+    defaultFromAddress: 'yang@limingcn.com',
+    defaultFromName: 'LIMING',
+    apiKey: process.env.RESEND_API_KEY || '',
+  }),
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
